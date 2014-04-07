@@ -25,4 +25,13 @@ Usage: /usr/bin/perl check_neo4j_cluster -s host1[,host2,etc] [-a path] [-P port
 ## TODO:
 
   - Explicit errors if users cannot be reached
-  - License & Version history
+
+## CHANGELOG
+
+### Version 0.1 – April 7, 2014
+
+  - Initial release.
+
+## License
+
+MIT: http://davestern.mit-license.org
