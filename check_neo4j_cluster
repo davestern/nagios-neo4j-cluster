@@ -45,7 +45,10 @@ sub main {
     $ua->timeout(3);
 
     my $totalServers = scalar(@servers);
-    my %serverType = ();
+    my %serverType = (
+        'master' => 0,
+        'slave'  => 0
+    );
 
     for my $server (@servers)
     {
@@ -68,12 +71,12 @@ sub main {
 
     if($serverType{'master'} != 1)
     {
-        push(@errors, "master quantity is not exactly 1. There are $serverType{'master'} masters.");
+        push(@errors, "Master quantity is not exactly 1, there are $serverType{'master'} masters.");
     }
 
-    if($serverType{'slave'} != $totalServers - 1)
+    if($serverType{'slave'} != ($totalServers - 1))
     {
-        push(@errors, "Slave quantity is not exactly " . ($totalServers - 1) . ". There are $serverType{'slave'} slaves.");
+        push(@errors, "Slave quantity is not exactly " . ($totalServers - 1) . ", there are $serverType{'slave'} slaves.");
     }
 
     if(@errors)
