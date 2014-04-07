@@ -1,0 +1,53 @@
+#!/usr/bin/perl
+# Author: Dave Stern (dave@davestern.com)
+# Version: 0.1
+
+
+use lib '/usr/lib/nagios/plugins';
+use utils qw(%ERRORS $TIMEOUT);
+
+use strict;
+use warnings;
+use LWP::Simple;
+use Getopt::Std;
+
+
+sub main {
+
+    my %options=();
+    getopts("a:hu:p:P:s:", \%options);
+
+    if($options{'h'})
+    {
+        usage();
+    }
+    else
+    {
+
+    }
+
+}
+
+sub usage {
+
+    print qq|\nUsage: check_neo4j_cluster -s host1[,host2,etc] [-a path] [-u username] [-p password] [-P port] [-h this help message]\n|;
+
+    # Extended usage information:
+    #
+    #     -a Optional: Path to "available". Default: /db/manage/server/ha/available
+    #
+    #     -h This help message
+    #
+    #     -u Optional: username
+    #
+    #     -p Optional: password
+    #
+    #     -P Optional: Port. Default: 7474
+    #
+    #     -s Required: Comma-separated list of servers to check
+
+  exit $ERRORS{'UNKNOWN'};
+
+}
+
+main();
