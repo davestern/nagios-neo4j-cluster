@@ -14,12 +14,14 @@ any of the servers cannot be reached.
 ## Usage
 
 ```
-Usage: /usr/bin/perl check_neo4j_cluster -s host1[,host2,etc] [-a path] [-P port] [-h this help message]
+Usage: /usr/bin/perl check_neo4j_cluster -s host1[,host2,etc] [-a path] [-P port] [-h this help message] [-v]
 
     -a Optional: Path to "available". Default: /db/manage/server/ha/available
     -h This help message
     -P Optional: Port. Default: 7474
     -s Required: Comma-separated list of servers to check
+    -v Optional: Verbose output
+
 ```
 
 ## Example

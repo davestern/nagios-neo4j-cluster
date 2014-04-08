@@ -14,7 +14,7 @@ use Getopt::Std;
 sub main {
 
     my %options=();
-    getopts("a:hu:p:P:s:", \%options);
+    getopts("a:hu:p:P:s:v", \%options);
 
     if($options{'h'})
     {
@@ -73,17 +73,21 @@ sub main {
 
     if($serverType{'master'} != 1)
     {
-        push(@errors, "Master quantity is not exactly 1, there are $serverType{'master'} masters.");
+        push(@errors, "Master quantity is not exactly 1: $serverType{'master'} masters.");
     }
 
     if($serverType{'slave'} != ($totalServers - 1))
     {
-        push(@errors, "Slave quantity is not exactly " . ($totalServers - 1) . ", there are $serverType{'slave'} slaves.");
+        push(@errors, "Slave quantity is not exactly " . ($totalServers - 1) . ": $serverType{'slave'} slaves.");
     }
 
     if(@errors)
     {
-        print join(" ", @errors);
+        print "CRITICAL";
+        if($options{'v'})
+        {
+            print ": " . join(" ", @errors);
+        }
         exit $ERRORS{'CRITICAL'};
     }
     else
@@ -94,7 +98,7 @@ sub main {
 
 sub usage {
 
-    print qq|\nUsage: check_neo4j_cluster -s host1[,host2,etc] [-a path] [-P port] [-h this help message]\n|;
+    print qq|\nUsage: check_neo4j_cluster -s host1[,host2,etc] [-a path] [-P port] [-h this help message] [-v]\n|;
 
     # Extended usage information:
     #
@@ -105,7 +109,7 @@ sub usage {
     #     -P Optional: Port. Default: 7474
     #
     #     -s Required: Comma-separated list of servers to check
-
+    #     -v verbose output
 }
 
 main();
