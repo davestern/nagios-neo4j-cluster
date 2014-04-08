@@ -22,9 +22,19 @@ Usage: /usr/bin/perl check_neo4j_cluster -s host1[,host2,etc] [-a path] [-P port
     -s Required: Comma-separated list of servers to check
 ```
 
-## TODO:
+## Example
 
-  - Explicit errors if users cannot be reached
+```
+/usr/bin/perl /usr/lib/nagios/plugins/check_neo4j_cluster -sdb-01.domain.com,db-02.domain.com,db-04.domain.com
+```
+
+If you have changed the protocol, port or path, add the following options:
+
+```
+/usr/bin/perl /usr/lib/nagios/plugins/check_neo4j_cluster -shttps://db-01.domain.com,https://db-02.domain.com,https://db-04.domain.com \
+-P7475 -a/path/to/available
+```
+
 
 ## CHANGELOG
 
