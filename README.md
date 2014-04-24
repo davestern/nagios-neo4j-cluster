@@ -40,6 +40,11 @@ If you have changed the protocol, port or path, add the following options:
 
 ## CHANGELOG
 
+### Version 0.2 – April 24, 2014
+
+  - Improved output on "OK" status: master/slave quantity displayed
+  - Improved `-h` usage information
+
 ### Version 0.1 – April 7, 2014
 
   - Initial release.

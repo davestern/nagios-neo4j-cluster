@@ -99,18 +99,20 @@ sub main {
 
 sub usage {
 
-    print qq|\nUsage: check_neo4j_cluster -s host1[,host2,etc] [-a path] [-P port] [-h this help message] [-v]\n|;
+    print qq|\nUsage: check_neo4j_cluster -s host1[,host2,etc] [-a path] \n[-P port] [-h this help message] [-v]\n|;
 
-    # Extended usage information:
-    #
-    #     -a Optional: Path to "available". Default: /db/manage/server/ha/available
-    #
-    #     -h This help message
-    #
-    #     -P Optional: Port. Default: 7474
-    #
-    #     -s Required: Comma-separated list of servers to check
-    #     -v verbose output
+    print qq|\nOptions:
+
+    -a Optional: Path to "available". Default: /db/manage/server/ha/available
+
+    -h This help message
+
+    -P Optional: Port. Default: 7474
+
+    -s Required: Comma-separated list of servers to check
+
+    -v verbose output\n\n|;
+
 }
 
 main();
